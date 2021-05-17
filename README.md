@@ -12,7 +12,7 @@
 
 ---
 
-**->** Click on this _[Link](https://pixasearch-lite.vercel.app)_ to go to Pixasearch Lite. **<-**
+**->** Click on this _[Link](https://alileonainagas-pixasearch-lite.vercel.app)_ to go to Pixasearch Lite. **<-**
 
 ---
 
