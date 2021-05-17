@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.main {
+    @apply min-h-screen font-bold text-gray-700 bg-gray-900;
+    background-image: url('/src/assets/overlapping-hexagons.svg');
+}
+.app-title {
+    @apply text-3xl tracking-wider font-anton;
+}
+.app-title span {
+    @apply text-2xl font-dancing;
+}
+.form {
+    @apply bg-clip-padding bg-opacity-70 backdrop-blur-xl lg:w-1/2;
+}
+.input {
+    @apply text-base font-medium focus:placeholder-black focus:outline-none focus:ring-2 font-inconsolata focus:ring-gray-900 focus:bg-yellow-500 lg:h-10 lg:w-2/3 lg:m-0;
+}
+.button {
+    @apply text-lg font-semibold tracking-wide transition duration-200 ease-in-out transform cursor-pointer font-inconsolata hover:bg-yellow-500 hover:text-black hover:scale-110 lg:h-10 lg:w-1/4 lg:ml-2 bg-clip-padding bg-opacity-70 backdrop-blur-xl;
+}
+.carrousel {
+    @apply flex flex-row w-full overflow-x-scroll lg:gap-4 lg:justify-items-center lg:grid lg:grid-cols-3 lg:overflow-x-hidden;
+}
+.image-card {
+    @apply ml-4 mr-4 bg-black rounded-md lg:min-w-full bg-clip-padding bg-opacity-70 backdrop-blur-xl lg:ml-0 lg:mr-0 h-1/2 lg:h-80;
+    min-width: 90%;
+}
+.list-item {
+    @apply ml-2 mr-2 text-xl text-gray-500 font-dancing;
+}
+strong {
+    @apply text-gray-300;
+}
+.link {
+    @apply font-bold text-center transition duration-200 ease-in-out transform cursor-pointer font-inconsolata hover:scale-110 hover:border-yellow-500 hover:text-yellow-500;
+}
+.hero {
+    @apply text-center;
+}
+.pagination {
+    @apply px-4 py-2 mx-2 my-4 text-lg font-bold text-gray-400 transition duration-200 ease-in-out transform border border-gray-500 rounded-md font-inconsolata hover:scale-110 hover:border-yellow-500 hover:text-yellow-500;
+}
+.footer-nav {
+    @apply flex flex-col items-center justify-around w-full lg:flex-row;
+}
