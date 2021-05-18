@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import AppForm from './components/AppForm';
+import { HelmetProvider, Helmet } from 'react-helmet-async';
 import axios from 'axios';
+
+//Assets
+import favicon from '././assets/Pixasearchico.svg'
+
+//App Components
+import AppForm from './components/AppForm';
 import ImagesList from './components/ImagesList';
 import Loader from './components/Loader';
 import AppFooter from './components/AppFooter';
@@ -60,34 +66,42 @@ function App() {
 	}
 
 	return (
-		<>
-			<div className='main'>
-				<div className='head'>
-					<AppForm
-						saveSearch={saveSearch}
-					/>
+		<HelmetProvider>
+			<>
+				<Helmet>
+					{/* Public Metadata implementation */}
+					<link rel="icon" type="image/svg+xml" href={favicon} />
+					<meta name="description" content="Single Page Application that searches for images but returns lighter results." />
+					<title>Pixasearch Lite</title>
+				</Helmet>
+				<div className='main'>
+					<div className='head'>
+						<AppForm
+							saveSearch={saveSearch}
+						/>
+					</div>
+					{
+						loading ? <Loader message='Loading Images...' />
+							: <div className='p-1 lg:p-6 hero'>
+								<ImagesList
+									images={images}
+								/>
+								{
+									(pages === 1)
+										? null
+										: (<button className='pagination' onClick={lastPage}>&laquo; Prev</button>)
+								}
+								{
+									(pages === totalPages)
+										? null
+										: (<button className='pagination' onClick={nextPage}>Next &raquo;</button>)
+								}
+							</div>
+					}
 				</div>
-				{
-					loading ? <Loader message='Loading Images...' />
-						: <div className='p-1 lg:p-6 hero'>
-							<ImagesList
-								images={images}
-							/>
-							{
-								(pages === 1)
-									? null
-									: (<button className='pagination' onClick={lastPage}>&laquo; Prev</button>)
-							}
-							{
-								(pages === totalPages)
-									? null
-									: (<button className='pagination' onClick={nextPage}>Next &raquo;</button>)
-							}
-						</div>
-				}
-			</div>
-			<AppFooter />
-		</>
+				<AppFooter />
+			</>
+		</HelmetProvider>
 	)
 }
 
